@@ -28,7 +28,11 @@ def create_app(test_config=None):
     commands.init_app(app)
 
     # Paginas
-    from . import conocenos
+    from . import (
+        conocenos,
+        admin,
+    )
     app.register_blueprint(conocenos.bp)
+    app.register_blueprint(admin.bp)
     
     return app

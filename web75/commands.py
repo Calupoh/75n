@@ -25,8 +25,10 @@ def close_db(e=None):
 
 def get_pwd():
     r_pwd = current_app.config['PWD']
+    with open(r_pwd, 'r', encoding='utf-8') as f:
+        pwd = json.load(f)
 
-    return r_pwd
+    return pwd
 
 
 def init_db():
@@ -47,8 +49,8 @@ def init_db_command():
 @click.argument('pwd', default='admin')
 def admin_pwd_command(pwd):
     """asigna una contraseña para el usuario administrador"""
-    r_pwd = get_pwd()
-    with open(r_pwd, 'w', encoding='utf-8') as f:
+    pwd = current_app.config['PWD']
+    with open(r_pwd, 'w') as f:
         pwd = generate_password_hash(pwd)
         json.dump(pwd, f)
     click.echo('contraseña de administrador restablecida')
