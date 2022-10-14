@@ -7,6 +7,7 @@ def create_app(test_config=None):
     app.config.from_mapping(
         SECRET_KEY='DEV',
         DATABASE=os.path.join(app.instance_path, "web75.sqlite"),
+        PWD=os.path.join(app.instance_path, "pwd.json")
     )
     
     if test_config is None:
@@ -22,7 +23,11 @@ def create_app(test_config=None):
     except OSError:
         pass
     
-    # Apps
+    # Comandos
+    from . import commands
+    commands.init_app(app)
+
+    # Paginas
     from . import conocenos
     app.register_blueprint(conocenos.bp)
     
