@@ -71,6 +71,7 @@ section article {
 .abogado {
     margin: 15px;
     flex: 250px;
+    text-align: center;
 }
 .abogado a{
     text-decoration: none;
