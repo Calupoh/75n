@@ -103,18 +103,29 @@ h2 {
         display: none;
     }
     #m-para-movil {
-        margin-top: 15px;
+        margin-top: 10px;
         margin-right: 15px;
         float: right;
         display: block;
     }
     #pop-menu {
-        top: 30px;
-        flex-direction: column;
+        margin-top: 0;
+    }
+    #pop-menu ul li {
+        float: unset;
+    }
+    #pop-menu ul li a {
+        padding: 12 px;
     }
     #b-menu {
+        padding: 4px 4px 2px 4px;
         background: none;
         border: none;
+    }
+    #b-menu img {
+        display: inline;
+        height: 2em;
+        width: auto;
     }
 }
 @media screen and (min-width: 800px) {
